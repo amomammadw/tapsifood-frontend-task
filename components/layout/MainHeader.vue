@@ -1,10 +1,18 @@
 <template>
-  <header class="bg-orange-500 flex justify-around items-center py-4">
-    <div></div>
+  <header class="bg-orange-500 py-4">
+    <nav class="container grid grid-cols-3 items-center">
+      <div></div>
 
-    <h1 class="font-semibold text-2xl text-white">Shopping List</h1>
+      <h1
+        class="font-semibold text-2xl whitespace-nowrap justify-self-center text-white"
+      >
+        Shopping List
+      </h1>
 
-    <Icon name="tabler:trash-filled" size="24px" class="text-white" />
+      <div class="justify-self-end">
+        <Icon name="tabler:trash-filled" size="24px" class="text-white" />
+      </div>
+    </nav>
   </header>
 </template>
 
