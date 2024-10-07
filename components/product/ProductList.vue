@@ -1,5 +1,8 @@
 <template>
-  <div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-5">
+  <div
+    class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5"
+  >
+    <!-- * loading -->
     <template v-if="status === 'pending'">
       <div
         v-for="i in 10"
@@ -7,16 +10,18 @@
       ></div>
     </template>
 
+    <!-- * product cards -->
     <template v-else-if="data && data.products.length > 0">
-      <ProductCard v-for="item in data?.products" :item />
+      <ProductCard v-for="item in data.products" :item :key="item.id" />
     </template>
 
+    <!-- * no items or fallback -->
     <template v-else>
-      <ProductsNotItems class="col-span-full h-full pt-20" />
+      <ProductsNoItems class="col-span-full h-full pt-20" />
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
-const { status, data } = await useFetch("/api/products");
+const { status, data } = await useLazyFetch("/api/products");
 </script>

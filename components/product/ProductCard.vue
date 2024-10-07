@@ -1,6 +1,30 @@
 <template>
-  <div class="bg-orange-100 transition-all hover:bg-orange-200 rounded-lg p-3">
-    Card Item
+  <div
+    class="bg-orange-100 flex cursor-pointer justify-between gap-2 transition-all hover:bg-orange-200 rounded-lg p-3"
+    @click="handleProductClick(!checked)"
+  >
+    <div class="flex gap-2">
+      <NuxtImg
+        :src="item.base64Image"
+        placeholder="/fallback.png"
+        loading="lazy"
+        width="100"
+        height="100"
+        class="rounded-md object-cover"
+      />
+      <div>
+        <p class="text-sm">{{ item.title }}</p>
+        <p class="text-xs text-balance line-clamp-3">{{ item.description }}</p>
+        <div class="flex gap-1">
+          <b class="text-sm">${{ item.price }}</b>
+          <del class="text-gray-800 text-xs" v-if="item.strikePrice">
+            ${{ item.strikePrice }}
+          </del>
+        </div>
+      </div>
+    </div>
+
+    <BaseCheckbox v-model="checked" @update:model-value="handleProductClick" />
   </div>
 </template>
 
@@ -12,4 +36,10 @@ interface IProps {
 }
 
 defineProps<IProps>();
+
+const checked = ref<boolean>(false);
+
+function handleProductClick(value: boolean) {
+  checked.value = value;
+}
 </script>
