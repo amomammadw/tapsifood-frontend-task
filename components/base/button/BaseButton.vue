@@ -1,5 +1,7 @@
 <template>
-  <button class="rounded-lg w-full py-3 bg-orange-500 text-white">
+  <button
+    class="rounded-lg w-full py-3 transition-all hover:bg-orange-600 bg-orange-500 text-white"
+  >
     <slot />
   </button>
 </template>

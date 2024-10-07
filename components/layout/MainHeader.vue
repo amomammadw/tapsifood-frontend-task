@@ -10,7 +10,11 @@
       </h1>
 
       <div class="justify-self-end">
-        <Icon name="tabler:trash-filled" size="24px" class="text-white" />
+        <Icon
+          name="tabler:trash-filled"
+          size="24px"
+          class="text-white cursor-pointer hover:bg-gray-200 transition-all"
+        />
       </div>
     </nav>
   </header>
