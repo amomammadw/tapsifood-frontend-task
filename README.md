@@ -1,16 +1,22 @@
-# Nuxt Example
+# TapsiFood Frontend Task | Mohammad Ranjbar
 
-Deploy your [Nuxt](https://nuxt.com) project to Vercel with zero configuration.
+Checkout the deployed version of task at this [Link](https://tapsifood-frontend-task.vercel.app)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/nuxtjs&template=nuxtjs)
+## Tech-Stack
 
-_Live Example: https://nuxtjs-template.vercel.app_
+1. Vue 3
+2. Nuxt 3
+3. Typescript
+4. h3 and nitro for server handlers (API request to fetch and cache default list of products)
+5. TailwindCSS for better and more efficient styling
+6. Nuxt Image for better and more optimized images
+7. Nuxt Icon for faster and optimized icons
 
-Look at the [Nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+## Components
 
-## Setup
-
-Make sure to install the dependencies:
+1. Layout (layout related components such as header and add product form)
+2. base (components that usually will be used all over project such as buttons and inputs)
+3. product (product card, fallback and list)
 
 ```bash
 # yarn
