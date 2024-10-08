@@ -5,7 +5,12 @@
         @submit.prevent="handleFormSubmit"
         class="grid md:grid-cols-2 grid-cols-1 gap-3"
       >
-        <BaseTextarea v-model="productTitle" class="size-full" required />
+        <BaseTextarea
+          required
+          :key="formKey"
+          class="size-full"
+          v-model="productTitle"
+        />
         <BaseButton type="submit">Add to List</BaseButton>
       </form>
     </div>
@@ -16,9 +21,11 @@
 const { addProduct } = useProduct();
 
 const productTitle = ref("");
+const formKey = ref(0);
 
 function handleFormSubmit() {
   addProduct(productTitle.value);
   productTitle.value = "";
+  formKey.value++;
 }
 </script>
