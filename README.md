@@ -1,6 +1,6 @@
 # TapsiFood Frontend Task | Mohammad Ranjbar
 
-Checkout the deployed version of task at this [Link](https://tapsifood-frontend-task.vercel.app)
+Checkout the deployed version at this [Link](https://tapsifood-frontend-task.vercel.app)
 
 ## Tech-Stack
 
@@ -18,37 +18,14 @@ Checkout the deployed version of task at this [Link](https://tapsifood-frontend-
 2. base (components that usually will be used all over project such as buttons and inputs)
 3. product (product card, fallback and list)
 
-```bash
-# yarn
-yarn
+## Utils
 
-# npm
-npm install
+1. random generator: a general utility function that generates random string for new added product IDs
 
-# pnpm
-pnpm install --shamefully-hoist
-```
+## Composables
 
-## Development Server
+1. useProduct: a global composable that covers all conditions and stuff such as create and delete
 
-Start the development server on http://localhost:3000
+## Server Handlers
 
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/deployment#presets) for more information.
+1. products: a API request based on H3 and Nitro with SWR strategy (Stale While Revalidate) to fetch product items from the mock JSON
