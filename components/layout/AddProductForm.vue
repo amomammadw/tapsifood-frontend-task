@@ -23,6 +23,10 @@ const { addProduct } = useProduct();
 const productTitle = ref("");
 const formKey = ref(0);
 
+/**
+ * Handles form submission by adding a new product with the given title
+ * and then resetting the form by clearing the input
+ */
 function handleFormSubmit() {
   addProduct(productTitle.value);
   productTitle.value = "";

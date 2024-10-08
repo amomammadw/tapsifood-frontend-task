@@ -25,7 +25,9 @@ Checkout the deployed version at this [Link](https://tapsifood-frontend-task.ver
 ## Composables
 
 1. useProduct: a global composable that covers all conditions and stuff such as create and delete
+2. instead of using another variable to save fetched data from projects I used **useNuxtData** composable powered by nuxt to get the data from my API request, the reason of using this composable is to use the cached key and data from nuxt and reduce creating redundant variables and saving data.
 
 ## Server Handlers
 
 1. products: a API request based on H3 and Nitro with SWR strategy (Stale While Revalidate) to fetch product items from the mock JSON
+2. creating a custom server handlers let us to have better control on data that we want from backend and it makes it easier to implement BFF (Backend For Frontend) pattern. it also improves performance and type-safety in our API response
