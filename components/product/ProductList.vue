@@ -23,5 +23,7 @@
 </template>
 
 <script setup lang="ts">
-const { status, data } = await useLazyFetch("/api/products");
+const { status, data } = await useLazyFetch("/api/products", {
+  key: "products-list",
+});
 </script>

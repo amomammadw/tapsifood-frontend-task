@@ -6,3 +6,5 @@ export interface IProductItem {
   description: string;
   strikePrice: number;
 }
+
+export type TProductResponse = { products: IProductItem[] };

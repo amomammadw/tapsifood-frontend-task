@@ -5,8 +5,8 @@
   >
     <div class="flex gap-2">
       <NuxtImg
-        :src="item.base64Image"
-        placeholder="/fallback.png"
+        :src="item.base64Image || '/fallback.png'"
+        placeholder
         loading="lazy"
         width="100"
         height="100"
@@ -16,7 +16,7 @@
         <p class="text-sm">{{ item.title }}</p>
         <p class="text-xs text-balance line-clamp-3">{{ item.description }}</p>
         <div class="flex gap-1">
-          <b class="text-sm">${{ item.price }}</b>
+          <b v-if="item.price" class="text-sm">${{ item.price }}</b>
           <del class="text-gray-800 text-xs" v-if="item.strikePrice">
             ${{ item.strikePrice }}
           </del>

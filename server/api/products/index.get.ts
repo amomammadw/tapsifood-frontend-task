@@ -1,6 +1,4 @@
-import { IProductItem } from "~/types/product.type";
-
-type TProductResponse = { products: IProductItem[] };
+import { TProductResponse } from "~/types/product.type";
 
 export default defineCachedEventHandler(async (event) => {
   const res = await $fetch<TProductResponse>(
