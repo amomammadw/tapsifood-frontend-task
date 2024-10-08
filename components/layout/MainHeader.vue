@@ -13,6 +13,7 @@
         <Icon
           name="tabler:trash-filled"
           size="24px"
+          @click="handleDeleteProducts"
           class="text-white cursor-pointer hover:bg-gray-200 transition-all"
         />
       </div>
@@ -20,4 +21,14 @@
   </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { deleteProducts, selectedProducts } = useProduct();
+
+function handleDeleteProducts() {
+  if (selectedProducts.value.length === 0) {
+    alert("Please Select Some Products");
+    return;
+  }
+  deleteProducts();
+}
+</script>

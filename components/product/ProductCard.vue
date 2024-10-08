@@ -24,7 +24,13 @@
       </div>
     </div>
 
-    <BaseCheckbox v-model="checked" @update:model-value="handleProductClick" />
+    <BaseCheckbox
+      :id="item.id"
+      v-model="checked"
+      :value="item.id"
+      :name="item.title"
+      @update:model-value="handleProductClick"
+    />
   </div>
 </template>
 
@@ -37,7 +43,7 @@ interface IProps {
 
 defineProps<IProps>();
 
-const checked = ref<boolean>(false);
+const checked = defineModel<boolean>();
 
 function handleProductClick(value: boolean) {
   checked.value = value;

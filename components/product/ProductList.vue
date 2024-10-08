@@ -2,6 +2,7 @@
   <div
     class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5"
   >
+    {{ selectedProducts }}
     <!-- * loading -->
     <template v-if="status === 'pending'">
       <div
@@ -12,7 +13,12 @@
 
     <!-- * product cards -->
     <template v-else-if="data && data.products.length > 0">
-      <ProductCard v-for="item in data.products" :item :key="item.id" />
+      <ProductCard
+        :item
+        :key="item.id"
+        @update:model-value="onUpdateModelValue($event, item.id)"
+        v-for="(item, idx) in data.products"
+      />
     </template>
 
     <!-- * no items or fallback -->
@@ -26,4 +32,15 @@
 const { status, data } = await useLazyFetch("/api/products", {
   key: "products-list",
 });
+
+const { selectedProducts } = useProduct();
+
+function onUpdateModelValue(event: boolean, value: string) {
+  if (event) {
+    selectedProducts.value.push(value);
+  } else if (selectedProducts.value.includes(value)) {
+    const foundIndex = selectedProducts.value.findIndex((x) => x === value);
+    selectedProducts.value.splice(foundIndex, 1);
+  }
+}
 </script>
